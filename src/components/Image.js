@@ -14,7 +14,6 @@ function Image(props)
     return(
         <div> 
           <ul>
-            {/* <Modalpreview img={images} /> */}
        {images}
     </ul>
         </div>
