@@ -1,17 +1,34 @@
-import react,{useState,useEffect} from 'react';
+/* eslint-disable jsx-a11y/heading-has-content */
+import {useState,useEffect} from 'react';
 import axios from 'axios';
 import Image from './Image';
 import BackToTop from './ScrollTop';
 import Typography from '@mui/material/Typography';
 import NoSearch from './NoSearch';
+import Grid from '@mui/material/Grid';
+import { makeStyles } from '@mui/styles';
+import { trackPromise } from 'react-promise-tracker';
+import LoadingIndicator from './LoadingIndicator';
+
+const inputSearch=makeStyles(
+  {
+    root:
+    {
+     padding:"13px ",
+    borderColor:"#132880",
+    marginBottom:"10px"
+    }
+  })
 
 function Search(props)
 {
+
 var pastSearches = []; 
 const [photo,setPhoto]=useState([]);
 const [searchText,setSearchText]=useState('');
 const [querypic,setQuery]=useState('');
 
+ const classes = inputSearch();
 const onSearchChange=(e)=>
 {
 setSearchText(e.target.value);
@@ -25,6 +42,7 @@ setSearchText(e.target.value);
          
          if(localStorage["pastSearches"]) {
             pastSearches = JSON.parse(localStorage["pastSearches"]);
+           
        }
        if(pastSearches.indexOf(searchText) === -1) {
         pastSearches.unshift(searchText);
@@ -38,36 +56,48 @@ setSearchText(e.target.value);
           
 useEffect(()=>
 {
-    const url=`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=246e886b871da3f5b5f22f8256cccdbb&tags=${querypic}&format=json&nojsoncallback=1`
-        axios.get(url)
+  
+    const url=`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.REACT_APP_API_KEY}&tags=${querypic}&format=json&nojsoncallback=1`
+    trackPromise(
+    axios.get(url)
         .then(res=>{
             console.log(res.data);
             setPhoto(res.data.photos.photo);
+            
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log(err)))
 },[querypic]);
-
-
 
     return(
         <div>
-        <form className="search-form" onSubmit={handleSubmit} id="back-to-top-anchor" >
-          <input type="search"
+          
+    <Grid  container
+  spacing={0}
+  direction="column"
+  alignItems="center"
+  justify="center"
+  style={{ marginTop:'30px'}}
+  >
+
+        <form className="search-form" onSubmit={handleSubmit} id="back-to-top-anchor"  >
+          <input type="search" className={classes.root}
             onChange={onSearchChange}
             id="search"
             name="search"
+            size="50"
             placeholder="Search"  />
-          <button type="submit" className="search-button" id="searchButton">
-            <svg fill="#fff" height="15" viewBox="0 0 23 23" width="24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-              <path d="M0 0h24v24H0z" fill="none"/>
-            </svg>
-          </button>
+  
         </form>
-        <Typography align="center" variant="h4" sx={{ color:'#132880',fontFamily:'Roboto Condensed'}}>{querypic ?`Search results for '${querypic}' ` :<NoSearch /> }</Typography>
-        {
-            <Image data={photo}/> 
-        }
+        </Grid>
+        <Typography align="center" sx={{paddingTop:"10px"}}>Recent Searches</Typography>
+        <Typography align="center" variant="h5"  sx={{ color:'#132880',fontFamily:'Roboto Condensed'}} dangerouslySetInnerHTML={{ __html: JSON.parse(localStorage.getItem('pastSearches')) }} />
+        <Typography align="center" variant="h4" sx={{ color:'black',fontFamily:'Roboto Condensed' }}>{querypic ?<LoadingIndicator/>     :<NoSearch /> }</Typography>
+        <Typography align="center" variant="h4" sx={{ color:'black',fontFamily:'Roboto Condensed' }}>{querypic ?`Search results for "${querypic}"`  :<NoSearch /> }</Typography>
+        
+          
+             <Image data={photo}/>
+          
+        
 <BackToTop {...props} />
         </div>
       

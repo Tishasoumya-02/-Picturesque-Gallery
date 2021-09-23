@@ -1,6 +1,7 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
+
 
 const style = {
   position: 'absolute',
@@ -12,13 +13,19 @@ const style = {
 
 };
 const Photo = props => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+
+
   return (
   <div>
-    <li> 
-      <img src={props.url} alt={props.title} title={props.title} onClick={handleOpen}  />
+    <li>
+       
+      <img src={props.url}  alt={props.title} title={props.title} onClick={handleOpen}  />
+     
         <Modal
         open={open}
         onClose={handleClose}
@@ -27,6 +34,7 @@ const Photo = props => {
       >
           <Box sx={style}>
           <img src={props.url} alt={props.title} title={props.title} id="modal-modal-img" />
+          
         </Box>
         </Modal>
     </li>

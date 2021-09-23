@@ -19,7 +19,7 @@ function NoSearch()
   direction="column"
   alignItems="center"
   justify="center"
-  style={{ marginTop:'100px'}}
+  style={{ marginTop:'40px'}}
   >
   
 <Typography align="center" variant="h4" className={classes.root} sx={{fontFamily:'Roboto Condensed'}}>Search results will appear here...<ImageSearchIcon/></Typography>
