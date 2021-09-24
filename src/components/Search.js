@@ -91,7 +91,7 @@ useEffect(()=>
         </Grid>
         <Typography align="center" sx={{paddingTop:"10px"}}>Recent Searches</Typography>
         <Typography align="center" variant="h5"  sx={{ color:'#132880',fontFamily:'Roboto Condensed'}} dangerouslySetInnerHTML={{ __html: JSON.parse(localStorage.getItem('pastSearches')) }} />
-        <Typography align="center" variant="h4" sx={{ color:'black',fontFamily:'Roboto Condensed' }}>{querypic ?<LoadingIndicator/>     :<NoSearch /> }</Typography>
+        <Typography align="center" variant="h4" sx={{ color:'black',fontFamily:'Roboto Condensed' }}>{querypic ?<LoadingIndicator/>     :null }</Typography>
         <Typography align="center" variant="h4" sx={{ color:'black',fontFamily:'Roboto Condensed' }}>{querypic ?`Search results for "${querypic}"`  :<NoSearch /> }</Typography>
         
           

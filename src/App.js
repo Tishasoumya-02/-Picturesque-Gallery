@@ -13,14 +13,14 @@ function App() {
     <BrowserRouter>
     <div>
    <ButtonAppbar />
-         <div className="photo-container">
-    <Switch>
-    <Route exact path="/" render={ () => (<Photofeed/>)} />
-    <Route path="/search" render={ () => (<Search />)} />
-    </Switch>
-    </div>
-    </div>
-      </BrowserRouter>
+  <div className="photo-container">
+  <Switch>
+  <Route exact path="/" render={ () => (<Photofeed/>)} />
+  <Route path="/search" render={ () => (<Search />)} />
+  </Switch>
+  </div>
+  </div>
+  </BrowserRouter>
   );
 }
 

@@ -14,11 +14,10 @@ import LoadingIndicator from './LoadingIndicator';
 
 const MyButton = styled(Button)({
   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-  border: 0,
-  borderRadius: 3,
+  borderRadius: "3px",
   boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
   color: 'white',
-  height: 48,
+  height: "48px",
   padding: '0 30px',
 
 });
@@ -27,10 +26,8 @@ const MyButton = styled(Button)({
 function Photofeed(props)
 {
     const [photos,setPhoto]=useState([]);
-    
-    
-
-
+  
+//suspense which is in beta mode will be used here in the future ,it will enhance the performance and reduce overheads.
     useEffect(()=>
     {
       trackPromise(
@@ -42,13 +39,7 @@ function Photofeed(props)
       })
       .catch(err => console.log(err)))
     },[]);
-      
-    
-
-
-
-
-
+  
 return(
     <div>
     <Container>
