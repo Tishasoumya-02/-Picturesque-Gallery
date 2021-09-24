@@ -27,7 +27,8 @@ const BarStyle = makeStyles({
         <AppBar position="static" className={classes.root}>
           <Toolbar>  
             <Typography variant="h5" component="div" sx={{ flexGrow: 1}} >
-           Gallery <PhotoLibraryIcon />
+          	
+                 Picturesque <PhotoLibraryIcon />
             </Typography>
           </Toolbar>
         </AppBar>
