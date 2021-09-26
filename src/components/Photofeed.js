@@ -31,7 +31,7 @@ function Photofeed(props)
     useEffect(()=>
     {
       trackPromise(
-      axios.get( `https://www.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=28f1841dfb25d3317c3dad2a18148418&per_page=500&format=json&nojsoncallback=1`)
+      axios.get( `https://www.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=${process.env.REACT_APP_API_KEY}&per_page=500&format=json&nojsoncallback=1`)
       .then(res=>{
           console.log(res.data);
           setPhoto(res.data.photos.photo);
