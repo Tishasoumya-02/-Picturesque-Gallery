@@ -10,13 +10,16 @@ import { makeStyles } from '@mui/styles';
 import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from './LoadingIndicator';
 
+
 const inputSearch=makeStyles(
   {
     root:
     {
+      
      padding:"13px ",
     borderColor:"#132880",
     marginBottom:"10px"
+  
     }
   })
 
@@ -89,8 +92,8 @@ useEffect(()=>
   
         </form>
         </Grid>
-        <Typography align="center" sx={{paddingTop:"10px"}}>Recent Searches</Typography>
-        <Typography align="center" variant="h5"  sx={{ color:'#132880',fontFamily:'Roboto Condensed'}} dangerouslySetInnerHTML={{ __html: JSON.parse(localStorage.getItem('pastSearches')) }} />
+        <Typography align="center" variant="h6" sx={{paddingTop:"10px",fontFamily:'Roboto Condensed'}} >Search history-</Typography>
+        <Typography align="center" variant="h5"  sx={{ color:'red',fontFamily:'Roboto Condensed' ,textTransform: 'uppercase'}} dangerouslySetInnerHTML={{ __html: JSON.parse(localStorage.getItem('pastSearches')) }} />
         <Typography align="center" variant="h4" sx={{ color:'black',fontFamily:'Roboto Condensed' }}>{querypic ?<LoadingIndicator/>     :null }</Typography>
         <Typography align="center" variant="h4" sx={{ color:'black',fontFamily:'Roboto Condensed' }}>{querypic ?`Search results for "${querypic}"`  :<NoSearch /> }</Typography>
         

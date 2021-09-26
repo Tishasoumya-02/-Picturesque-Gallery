@@ -25,7 +25,7 @@ const Photo = props => {
     <li>
        
       <img src={props.url}  alt={props.title} title={props.title} onClick={handleOpen}  />
-     
+    
         <Modal
         open={open}
         onClose={handleClose}

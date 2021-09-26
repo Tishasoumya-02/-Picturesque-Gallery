@@ -22,7 +22,7 @@ function NoSearch()
   >
   
 <Typography align="center" variant="h4" className={classes.root} sx={{fontFamily:'Roboto Condensed'}}>Search results will appear here...<ImageSearchIcon/></Typography>
-<img src="https://images.squarespace-cdn.com/content/v1/55d6264ee4b074f43cec4558/1562691067475-I7ZGU6O96VW3V88IJGNA/searching.gif" alt="searching" style={{padding:'10px'}}/>
+<img src="https://cdn.dribbble.com/users/77121/screenshots/11343397/media/6fbeecdf65373710e1c36c28e2c28649.jpg?compress=1" height="50%" width="30%" alt="searching" />
   </Grid>
     )
 }

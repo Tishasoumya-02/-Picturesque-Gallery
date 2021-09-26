@@ -18,20 +18,28 @@ code {
   justify-content: space-between;
   -ms-align-items: flex-start;
   align-items: flex-start;
+	padding: 2px;
+	transition: .3s;
 }
 .photo-container ul li {
-  width: 220px;
-  height: 165px;
+  
+  width: 250px;
+  height: 170px;
   overflow: hidden;
   margin-bottom: 15px;
 }
 
 .photo-container ul img {
+  display: block;
   width: 100%;
   transform: scale(1.25);
   transition: transform 1.25s;
+ 
 }
+
 .photo-container li:hover img {
   transform: scale(1.65);
+  
+ 
 }
 
