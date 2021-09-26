@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-
+import Grid from '@mui/material/Grid';
 
 const style = {
   position: 'absolute',
@@ -23,7 +23,15 @@ const Photo = props => {
   return (
   <div>
     <li>
-       
+          
+    <Grid  container
+  spacing={0}
+  direction="column"
+  alignItems="center"
+  justify="center"
+  style={{ marginTop:'30px'}}
+  >
+    
       <img src={props.url}  alt={props.title} title={props.title} onClick={handleOpen}  />
     
         <Modal
@@ -32,11 +40,14 @@ const Photo = props => {
         aria-labelledby="modal-modal-img"
         aria-describedby="modal-modal-description"
       >
+        
           <Box sx={style}>
           <img src={props.url} alt={props.title} title={props.title} id="modal-modal-img" />
           
         </Box>
         </Modal>
+        </Grid>
+  
     </li>
   
   </div>

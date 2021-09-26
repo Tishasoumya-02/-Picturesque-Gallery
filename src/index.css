@@ -16,8 +16,8 @@ code {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  -ms-align-items: flex-start;
-  align-items: flex-start;
+  -ms-align-items: flex-end;
+  align-items: flex-end;
 	padding: 2px;
 	transition: .3s;
 }
