@@ -20,10 +20,13 @@ function NoSearch()
   justify="center"
   style={{ marginTop:'40px'}}
   >
-  
+
 <Typography align="center" variant="h4" className={classes.root} sx={{fontFamily:'Roboto Condensed'}}>Search results will appear here...<ImageSearchIcon/></Typography>
 <img src="https://cdn.dribbble.com/users/77121/screenshots/11343397/media/6fbeecdf65373710e1c36c28e2c28649.jpg?compress=1" height="50%" width="30%" alt="searching" />
   </Grid>
     )
 }
 export default NoSearch;
+
+
+//This page gets rendered when the end-user has not searched anything yet.

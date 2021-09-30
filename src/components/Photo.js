@@ -10,20 +10,17 @@ const style = {
   transform: 'translate(-50%, -50%)',
   bgcolor: 'background.paper',
   boxShadow: 24,
-
 };
+
 const Photo = props => {
   const [open, setOpen] = useState(false);
-  
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-
 
   return (
   <div>
     <li>
-          
+
     <Grid  container
   spacing={0}
   direction="column"
@@ -31,25 +28,20 @@ const Photo = props => {
   justify="center"
   style={{ marginTop:'30px'}}
   >
-    
       <img src={props.url}  alt={props.title} title={props.title} onClick={handleOpen}  />
-    
+
         <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-img"
         aria-describedby="modal-modal-description"
       >
-        
           <Box sx={style}>
           <img src={props.url} alt={props.title} title={props.title} id="modal-modal-img" />
-          
         </Box>
         </Modal>
         </Grid>
-  
     </li>
-  
   </div>
 );
 }

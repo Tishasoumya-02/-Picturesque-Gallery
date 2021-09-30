@@ -15,23 +15,22 @@ const inputSearch=makeStyles(
   {
     root:
     {
-      
      padding:"13px ",
     borderColor:"#132880",
     marginBottom:"10px"
-  
+
     }
   })
 
 function Search(props)
 {
 
-var pastSearches = []; 
+var pastSearches = [];
 const [photo,setPhoto]=useState([]);
 const [searchText,setSearchText]=useState('');
 const [querypic,setQuery]=useState('');
+const classes = inputSearch();
 
- const classes = inputSearch();
 const onSearchChange=(e)=>
 {
 setSearchText(e.target.value);
@@ -42,38 +41,38 @@ setSearchText(e.target.value);
           e.preventDefault();
           setQuery(searchText);
          console.log('You typed "'+ querypic + '" in the Search field');
-         
+
          if(localStorage["pastSearches"]) {
             pastSearches = JSON.parse(localStorage["pastSearches"]);
-           
+
        }
        if(pastSearches.indexOf(searchText) === -1) {
         pastSearches.unshift(searchText);
-        if(pastSearches.length > 5) { 
+        if(pastSearches.length > 5) {
            pastSearches.pop();
         }
         localStorage["pastSearches"] = JSON.stringify(pastSearches);
-   }     
+   }
          e.currentTarget.reset();
            }
-          
+
 useEffect(()=>
 {
-  
+
     const url=`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.REACT_APP_API_KEY}&tags=${querypic}&format=json&nojsoncallback=1`
     trackPromise(
     axios.get(url)
         .then(res=>{
             console.log(res.data);
             setPhoto(res.data.photos.photo);
-            
+
         })
         .catch(err => console.log(err)))
 },[querypic]);
 
     return(
         <div>
-          
+
     <Grid  container
   spacing={0}
   direction="column"
@@ -81,7 +80,6 @@ useEffect(()=>
   justify="center"
   style={{ marginTop:'30px'}}
   >
-
         <form className="search-form" onSubmit={handleSubmit} id="back-to-top-anchor"  >
           <input type="search" className={classes.root}
             onChange={onSearchChange}
@@ -89,22 +87,16 @@ useEffect(()=>
             name="search"
             size="50"
             placeholder="Search"  />
-  
         </form>
         </Grid>
         <Typography align="center" variant="h6" sx={{paddingTop:"10px",fontFamily:'Roboto Condensed'}} >Search history-</Typography>
         <Typography align="center" variant="h5"  sx={{ color:'red',fontFamily:'Roboto Condensed' ,textTransform: 'uppercase'}} dangerouslySetInnerHTML={{ __html: JSON.parse(localStorage.getItem('pastSearches')) }} />
         <Typography align="center" variant="h4" sx={{ color:'black',fontFamily:'Roboto Condensed' }}>{querypic ?<LoadingIndicator/>     :null }</Typography>
         <Typography align="center" variant="h4" sx={{ color:'black',fontFamily:'Roboto Condensed' }}>{querypic ?`Search results for "${querypic}"`  :<NoSearch /> }</Typography>
-        
-          
-             <Image data={photo}/>
-          
-        
-<BackToTop {...props} />
+
+        <Image data={photo}/>
+        <BackToTop {...props} />
         </div>
-      
-   
     );
 }
 export default Search;
