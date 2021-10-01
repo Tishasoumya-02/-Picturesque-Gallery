@@ -63,7 +63,7 @@ useEffect(()=>
     trackPromise(
     axios.get(url)
         .then(res=>{
-            console.log(res.data);
+            console.log(res.data, "first time fetch");
             setPhoto(res.data.photos.photo);
 
         })
