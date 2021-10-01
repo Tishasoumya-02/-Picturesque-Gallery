@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { makeStyles } from '@mui/styles';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
+import { Link } from 'react-router-dom';
 
 const BarStyle = makeStyles({
   root: {
@@ -27,10 +28,11 @@ const BarStyle = makeStyles({
         <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" className={classes.root}>
           <Toolbar>
-            <Typography variant="h5" component="div" sx={{ flexGrow: 1}} >
-
-                 Picturesque <PhotoLibraryIcon />
-            </Typography>
+            <Link to="/">
+              <Typography variant="h5" component="div" sx={{ flexGrow: 1}} >
+                  Picturesque <PhotoLibraryIcon />
+              </Typography>
+            </Link>
           </Toolbar>
         </AppBar>
       </Box>
