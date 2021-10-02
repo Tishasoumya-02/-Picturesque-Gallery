@@ -18,7 +18,6 @@ const Photo = props => {
   const handleClose = () => setOpen(false);
 
   return (
-  <div>
     <li>
 
     <Grid  container
@@ -42,7 +41,6 @@ const Photo = props => {
         </Modal>
         </Grid>
     </li>
-  </div>
 );
 }
 
