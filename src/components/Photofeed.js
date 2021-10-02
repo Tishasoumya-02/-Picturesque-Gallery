@@ -24,6 +24,8 @@ const MyButton = styled(Button)({
 function Photofeed(props)
 {
     const [photos,setPhoto]=useState([]);
+    const [load,setLoad] = useState(false);
+
 //suspense which is in beta mode will be used here in the future ,it will enhance the performance and reduce overheads.
     useEffect(()=>
     {
@@ -32,7 +34,7 @@ function Photofeed(props)
       .then(res=>{
           console.log(res.data);
           setPhoto(res.data.photos.photo);
-
+          setLoad(true);
       })
       .catch(err => console.log(err)))
     },[]);
@@ -54,7 +56,7 @@ return(
   </Grid>
   <LoadingIndicator/>
 
-    <Image  data={photos} />
+    <Image  data={photos} isLoaded={load}/>
     </Container>
     <BackToTop {...props} />
 

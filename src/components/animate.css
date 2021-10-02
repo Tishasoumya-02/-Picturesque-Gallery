@@ -1,0 +1,4 @@
+body[data-aos-delay='3300'] [data-aos],
+[data-aos][data-aos][data-aos-delay='3300'] {
+    transition-delay: 3300ms;
+}
