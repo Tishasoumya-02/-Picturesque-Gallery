@@ -13,9 +13,9 @@ function Image(props)
   
     return(
         <div>
-          <ul>
+          <section>
        {images}
-    </ul>
+          </section>
         </div>
     );
   }
