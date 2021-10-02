@@ -1,8 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Photo from './Photo';
+
+import Aos from "aos";
+import "aos/dist/aos.css"
+import "./animate.css"
 
 function Image(props)
 {
+
+    useEffect(()=>{
+        Aos.init({
+            duration:2000
+        })
+    },[])
+
   const result=props.data;
   let images;
   images= result.map(photo =>
@@ -12,10 +23,10 @@ function Image(props)
   //console.log(images);
   
     return(
-        <div>
+        <div data-aos="fade-up" data-aos-delay="3200">
           <ul>
-       {images}
-    </ul>
+              {images}
+          </ul>
         </div>
     );
   }
