@@ -28,10 +28,10 @@ function Photofeed(props)
     useEffect(()=>
     {
       trackPromise(
-      axios.get( `https://www.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=54ca3e56ffa6a56093186e0fedc6c786&per_page=500&format=json&nojsoncallback=1`)
+      axios.get( `https://www.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=54ca3e56ffa6a56093186e0fedc6c786&per_page=200&format=json&nojsoncallback=1`)
       .then(res=>{
-          console.log(res.data.photos.photo.slice(0, 40), "fetch data");
-          setPhoto(res.data.photos.photo.slice(0, 40));
+          console.log(res.data.photos.photo);
+          setPhoto(res.data.photos.photo);
 
       })
       .catch(err => console.log(err)))
