@@ -39,7 +39,10 @@ code {
 
 .photo-container li:hover img {
   transform: scale(1.65);
-  
- 
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
