@@ -11,7 +11,7 @@ function Image(props)
         <Photo url={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} key={photo.id} title={photo.title} />
     );
 
-    //rendering only 52 photos
+    //rendering photos
     var temp = [];
     for (let i=0;i<images.length;i++){
         console.log(images.length);
