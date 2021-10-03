@@ -15,18 +15,28 @@ code {
 .photo-container ul {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: center;
   -ms-align-items: flex-end;
   align-items: flex-end;
 	padding: 2px;
 	transition: .3s;
 }
+
 .photo-container ul li {
-  
   width: 250px;
   height: 170px;
   overflow: hidden;
-  margin-bottom: 15px;
+  margin: 0px 15px 15px 15px;
+}
+
+@media (max-width: 600px) {
+  .photo-container ul {
+    margin-top: 30px;
+  }
+  .photo-container ul li {
+    width: 300px;
+    height: 200px;
+  }
 }
 
 .photo-container ul img {
@@ -34,7 +44,6 @@ code {
   width: 100%;
   transform: scale(1.25);
   transition: transform 1.25s;
- 
 }
 
 .photo-container li:hover img {
@@ -45,3 +54,4 @@ a {
   text-decoration: none;
   color: white;
 }
+
