@@ -29,6 +29,7 @@ var pastSearches = [];
 const [photo,setPhoto]=useState([]);
 const [searchText,setSearchText]=useState('');
 const [querypic,setQuery]=useState('');
+const [load,setLoad] = useState(false);
 const classes = inputSearch();
 
 const onSearchChange=(e)=>
@@ -59,16 +60,17 @@ setSearchText(e.target.value);
 useEffect(()=>
 {
 
-    const url=`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.REACT_APP_API_KEY}&tags=${querypic}&format=json&nojsoncallback=1`
+    const url=`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=54ca3e56ffa6a56093186e0fedc6c786&tags=${querypic}&format=json&nojsoncallback=1`
     trackPromise(
     axios.get(url)
         .then(res=>{
-            console.log(res.data, "first time fetch");
+            console.log(res.data.photos.photo);
             setPhoto(res.data.photos.photo);
-
+            setLoad(true);
         })
         .catch(err => console.log(err)))
 },[querypic]);
+
 
     return(
         <div>
@@ -94,7 +96,7 @@ useEffect(()=>
         <Typography align="center" variant="h4" sx={{ color:'black',fontFamily:'Roboto Condensed' }}>{querypic ?<LoadingIndicator/>     :null }</Typography>
         <Typography align="center" variant="h4" sx={{ color:'black',fontFamily:'Roboto Condensed' }}>{querypic ?`Search results for "${querypic}"`  :<NoSearch /> }</Typography>
 
-        <Image data={photo}/>
+        <Image data={photo} isLoaded={load}/>
         <BackToTop {...props} />
         </div>
     );
