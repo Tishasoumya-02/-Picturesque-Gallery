@@ -13,12 +13,7 @@ function Image(props)
         <Photo url={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} key={photo.id} title={photo.title} />
     );
 
-    //rendering photos
-    var temp = [];
-    for (let i=0;i<images.length;i++){
-        console.log(images.length);
-        temp[i] = images[i]
-    }
+
 
     //aos initialization
     useEffect(()=>{
@@ -30,14 +25,14 @@ function Image(props)
         Aos.refresh();
     },[])
 
-    console.log (temp)
+  
 
     return(
         <div>
             <ul>
                 {
                     props.isLoaded ?
-                        temp.map(function (item){
+                        images.map(function (item){
                             return <span data-aos="zoom-in-up" data-aos-delay="200" key={item.key} >{item}</span>
                         }) : null
                 }
