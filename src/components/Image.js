@@ -1,35 +1,48 @@
 import React, {useEffect} from 'react';
 import Photo from './Photo';
-
 import Aos from "aos";
 import "aos/dist/aos.css"
-import "./animate.css"
 
 function Image(props)
 {
+    const result = props.data;
 
+    let images;
+    images= result.map(photo =>
+        <Photo url={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} key={photo.id} title={photo.title} />
+    );
+
+    //rendering only 52 photos
+    var temp = [];
+    for (let i=0;i<52;i++){
+        temp[i] = images[i]
+    }
+
+    //aos initialization
     useEffect(()=>{
         Aos.init({
-            duration:2000
-        })
+            duration:1000,
+            once:true,
+            offset: -10,
+        });
+        Aos.refresh();
     },[])
 
-  const result=props.data;
-  let images;
-  images= result.map(photo =>
-    <Photo url={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} key={photo.id} title={photo.title} />
-  );
+    console.log (temp)
 
-  //console.log(images);
-  
     return(
-        <div data-aos="fade-up" data-aos-delay="3200">
-          <ul>
-              {images}
-          </ul>
+        <div>
+            <ul>
+                {
+                    props.isLoaded ?
+                        temp.map(function (item){
+                            return <span data-aos="zoom-in-up" data-aos-delay="200" key={item.key} >{item}</span>
+                        }) : <div></div>
+                }
+            </ul>
         </div>
     );
-  }
+}
 
 export default Image;
 
