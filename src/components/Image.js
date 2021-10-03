@@ -6,15 +6,17 @@ import "aos/dist/aos.css"
 function Image(props)
 {
     const result = props.data;
-    console.log (result)
+
+
     let images;
     images= result.map(photo =>
         <Photo url={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} key={photo.id} title={photo.title} />
     );
 
-    //rendering only 52 photos
+    //rendering photos
     var temp = [];
-    for (let i=0;i<52;i++){
+    for (let i=0;i<images.length;i++){
+        console.log(images.length);
         temp[i] = images[i]
     }
 
@@ -37,7 +39,7 @@ function Image(props)
                     props.isLoaded ?
                         temp.map(function (item){
                             return <span data-aos="zoom-in-up" data-aos-delay="200" key={item.key} >{item}</span>
-                        }) : <div></div>
+                        }) : null
                 }
             </ul>
         </div>

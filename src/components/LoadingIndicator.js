@@ -12,7 +12,7 @@ const inputSearch=makeStyles(
      }
    });
    
-const LoadingIndicator = props => {
+const LoadingIndicator = ()=> {
    const classes = inputSearch();
     const { promiseInProgress } = usePromiseTracker();
        return (
