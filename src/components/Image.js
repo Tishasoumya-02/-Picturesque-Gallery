@@ -6,7 +6,7 @@ import "aos/dist/aos.css"
 function Image(props)
 {
     const result = props.data;
-
+    console.log (result)
     let images;
     images= result.map(photo =>
         <Photo url={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} key={photo.id} title={photo.title} />

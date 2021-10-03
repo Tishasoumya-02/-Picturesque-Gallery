@@ -11,8 +11,10 @@ import ImageSearchIcon from '@mui/icons-material/ImageSearch';
 import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from './LoadingIndicator';
 
+
 const MyButton = styled(Button)({
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    background: 'FA8BFF',
+    backgroundImage: 'linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%)',
     borderRadius: "3px",
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white',
