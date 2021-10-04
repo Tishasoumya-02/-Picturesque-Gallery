@@ -10,7 +10,7 @@ Site under construction rn :building_construction ,not responsive for mobiles/ta
 Link-https://picturesque-gallery.netlify.app/
 
 
-## Contributors 💥
+## CONTRIBUTORS 💥
 
 ![Image of contributors](https://contrib.rocks/image?repo=Tishasoumya-02/-Picturesque-Gallery)
 
