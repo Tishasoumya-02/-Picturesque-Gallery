@@ -15,9 +15,12 @@ const inputSearch=makeStyles(
   {
     root:
     {
-     padding:"13px ",
-    borderColor:"#132880",
-    marginBottom:"10px"
+      padding:"13px ",
+      border:"2px solid #ddd",
+      marginBottom: "10px",
+      borderRadius: "50px",
+      outline: "none",
+      boxShadow: "0 3px 7px 0 rgba(0,0,0,.2)"
 
     }
   })
@@ -88,7 +91,7 @@ useEffect(()=>
             id="search"
             name="search"
             size="50"
-            placeholder="Search"  />
+            placeholder="Search..."  />
         </form>
         </Grid>
         <Typography align="center" variant="h6" sx={{paddingTop:"10px",fontFamily:'Roboto Condensed'}} >Search history-</Typography>
