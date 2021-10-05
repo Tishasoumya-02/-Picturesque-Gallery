@@ -12,7 +12,9 @@ Link-https://picturesque-gallery.netlify.app/
 
 ## CONTRIBUTORS 💥
 
-![Image of contributors](https://contrib.rocks/image?repo=Tishasoumya-02/-Picturesque-Gallery)
+<a href = "https://github.com/Tishasoumya-02/-Picturesque-Gallery/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=Tishasoumya-02/-Picturesque-Gallery"/>
+</a>
 
 
 ## 💥 Leave a star behind if this repo helped you in any way 😄
