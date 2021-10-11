@@ -17,11 +17,11 @@ const inputSearch=makeStyles(
     {
       padding:"13px ",
       border:"2px solid #ddd",
-      marginBottom: "10px",
       borderRadius: "50px",
       outline: "none",
-      boxShadow: "0 3px 7px 0 rgba(0,0,0,.2)"
-
+      width: '95%',
+      margin: "10px 6px",
+      boxShadow: "0 3px 7px 0 rgba(0,0,0,.2)",
     }
   })
 
@@ -79,12 +79,12 @@ useEffect(()=>
         <div>
 
     <Grid  container
-  spacing={0}
-  direction="column"
-  alignItems="center"
-  justify="center"
-  style={{ marginTop:'30px'}}
-  >
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justify="center"
+      style={{ marginTop:'30px'}}
+      >
         <form className="search-form" onSubmit={handleSubmit} id="back-to-top-anchor"  >
           <input type="search" className={classes.root}
             onChange={onSearchChange}
